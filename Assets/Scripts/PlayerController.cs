@@ -1,6 +1,4 @@
 using UnityEngine;
-using System.Collections;
-
 public class PlayerController : MonoBehaviour
 {
     public GameObject gun;
@@ -19,5 +17,8 @@ public class PlayerController : MonoBehaviour
             ammo = gun.transform.Find("Magazine/Ammo");
         }
         else Debug.Log("No child with the name 'Gun' attached to the player");
+    }
+    private void Update()
+    {
     }
 }

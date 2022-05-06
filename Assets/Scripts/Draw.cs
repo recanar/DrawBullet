@@ -48,6 +48,7 @@ public class Draw : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
+            Line.positionCount = 0;
             isLineStarted = false;
         }
     }
