@@ -1,13 +1,17 @@
 using UnityEngine;
 public class MoveGround : MonoBehaviour
 {
-    [SerializeField] float speed;
-    void Update()
+    [SerializeField] private float speed;//speed of platform
+    private float zLimit=30f;
+    void FixedUpdate()//fixedupdate gives better result while teleporting ground 
     {
-        transform.Translate(Vector3.back * speed * Time.deltaTime);
-        if (transform.position.z<-20f)
+        if (GameManager.instance.currentState!=States.TapToStart)//while playing ground will move
         {
-            transform.position = Vector3.forward * 40;
+            if (transform.position.z >= zLimit)//teleport ground back to player when reach limit
+            {
+                transform.position = Vector3.back * 10;
+            }
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);//move platform with speed
         }
     }
 }
